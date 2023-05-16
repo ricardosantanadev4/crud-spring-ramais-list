@@ -33,8 +33,7 @@ public class Controller {
 
 	@GetMapping
 	public @ResponseBody List<RamaisList> list() {
-		List<RamaisList> ramais = ramaisListService.list();
-		return ramais;
+		return ramaisListService.list();
 	}
 
 	@GetMapping("/{id}")
