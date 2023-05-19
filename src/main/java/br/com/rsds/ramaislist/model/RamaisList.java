@@ -10,6 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 
 @Entity
@@ -51,5 +52,6 @@ public class RamaisList {
 	@NotBlank
 	@Column(name = "PAUSED", nullable = false, length = 3)
 	@Length(min = 3, max = 3)
+	@Pattern(regexp = "SIM|NAO")
 	private String paused = Paused.NAO.toString();
 }
