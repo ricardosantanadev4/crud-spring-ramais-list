@@ -1,30 +1,30 @@
-package br.com.rsds.ramaislist.dto.mapper;
+package br.com.rsds.ramais.dto.mapper;
 
 import org.springframework.stereotype.Component;
 
-import br.com.rsds.ramaislist.dto.RamaisListDTO;
-import br.com.rsds.ramaislist.model.RamaisList;
+import br.com.rsds.ramais.dto.RamaisDTO;
+import br.com.rsds.ramais.model.Ramais;
 
 @Component
-public class RamisListMapper {
+public class RamisMapper {
 
-	public RamaisListDTO toDTO(RamaisList ramalDTO) {
+	public RamaisDTO toDTO(Ramais ramalDTO) {
 
 		if (ramalDTO == null) {
 			return null;
 		}
 
-		return new RamaisListDTO(ramalDTO.getId(), ramalDTO.getName(), ramalDTO.getNumber(),
+		return new RamaisDTO(ramalDTO.getId(), ramalDTO.getName(), ramalDTO.getNumber(),
 				ramalDTO.getContextPermission(), ramalDTO.getCaptureGroup(), ramalDTO.getDepartament());
 	}
 
-	public RamaisList toEntity(RamaisListDTO ramalDTO) {
+	public Ramais toEntity(RamaisDTO ramalDTO) {
 
 		if (ramalDTO == null) {
 			return null;
 		}
 
-		RamaisList ramal = new RamaisList();
+		Ramais ramal = new Ramais();
 		if (ramalDTO.id() != null) {
 			ramal.setId(ramalDTO.id());
 		}

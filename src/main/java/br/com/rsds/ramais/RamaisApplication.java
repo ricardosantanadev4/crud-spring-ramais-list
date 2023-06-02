@@ -1,26 +1,26 @@
-package br.com.rsds.ramaislist;
+package br.com.rsds.ramais;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import br.com.rsds.ramaislist.model.Paused;
-import br.com.rsds.ramaislist.model.RamaisList;
-import br.com.rsds.ramaislist.repository.RamaisListRepository;
+import br.com.rsds.ramais.model.Paused;
+import br.com.rsds.ramais.model.Ramais;
+import br.com.rsds.ramais.repository.RamaisRepository;
 
 @SpringBootApplication
-public class RamaisListApplication {
+public class RamaisApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RamaisListApplication.class, args);
+		SpringApplication.run(RamaisApplication.class, args);
 	}
 
 	@Bean
-	CommandLineRunner initDataBase(RamaisListRepository ramaisListRepository) {
+	CommandLineRunner initDataBase(RamaisRepository ramaisListRepository) {
 		return args -> {
 			ramaisListRepository.deleteAll();
-			RamaisList ramais = new RamaisList();
+			Ramais ramais = new Ramais();
 			ramais.setName("Ricardo - Desenvolvimento");
 			ramais.setNumber("6000");
 			ramais.setContextPermission("DDI");

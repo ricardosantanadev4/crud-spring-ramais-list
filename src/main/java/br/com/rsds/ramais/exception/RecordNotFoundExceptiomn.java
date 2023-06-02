@@ -1,4 +1,4 @@
-package br.com.rsds.ramaislist.exception;
+package br.com.rsds.ramais.exception;
 
 public class RecordNotFoundExceptiomn extends RuntimeException{
 

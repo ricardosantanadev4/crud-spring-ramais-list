@@ -1,4 +1,4 @@
-package br.com.rsds.ramaislist.controller;
+package br.com.rsds.ramais.controller;
 
 import java.util.List;
 
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.rsds.ramaislist.dto.RamaisListDTO;
-import br.com.rsds.ramaislist.service.RamaisListService;
+import br.com.rsds.ramais.dto.RamaisDTO;
+import br.com.rsds.ramais.service.RamaisService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -25,30 +25,30 @@ import jakarta.validation.constraints.Positive;
 @RestController
 @RequestMapping("/api/ramais-list")
 public class Controller {
-	private final RamaisListService ramaisListService;
+	private final RamaisService ramaisListService;
 
-	public Controller(RamaisListService ramaisListService) {
+	public Controller(RamaisService ramaisListService) {
 		this.ramaisListService = ramaisListService;
 	}
 
 	@GetMapping
-	public @ResponseBody List<RamaisListDTO> list() {
+	public @ResponseBody List<RamaisDTO> list() {
 		return ramaisListService.list();
 	}
 
 	@GetMapping("/{id}")
-	public RamaisListDTO FindbyId(@PathVariable @NotNull @Positive Long id) {
+	public RamaisDTO FindbyId(@PathVariable @NotNull @Positive Long id) {
 		return ramaisListService.FindbyId(id);
 	}
 
 	@PostMapping
 	@ResponseStatus(value = HttpStatus.CREATED)
-	public RamaisListDTO create(@RequestBody @Valid RamaisListDTO record) {
+	public RamaisDTO create(@RequestBody @Valid RamaisDTO record) {
 		return ramaisListService.create(record);
 	}
 
 	@PutMapping("/{id}")
-	public RamaisListDTO update(@PathVariable @NotNull @Positive Long id, @RequestBody @Valid RamaisListDTO record) {
+	public RamaisDTO update(@PathVariable @NotNull @Positive Long id, @RequestBody @Valid RamaisDTO record) {
 		return ramaisListService.update(id, record);
 	}
 

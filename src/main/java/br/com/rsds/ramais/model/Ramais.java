@@ -1,4 +1,4 @@
-package br.com.rsds.ramaislist.model;
+package br.com.rsds.ramais.model;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -16,7 +16,7 @@ import lombok.Data;
 @Entity
 @Table(name = "RAMAISLIST")
 @Data
-public class RamaisList {
+public class Ramais {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
