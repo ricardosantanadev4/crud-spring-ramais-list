@@ -5,7 +5,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import br.com.rsds.ramais.model.Paused;
 import br.com.rsds.ramais.model.Ramais;
 import br.com.rsds.ramais.repository.RamaisRepository;
 
@@ -26,7 +25,7 @@ public class RamaisApplication {
 			ramais.setContextPermission("DDI");
 			ramais.setCaptureGroup("1");
 			ramais.setDepartament("DESENVOLVIMENTO");
-			ramais.setPaused(Paused.NAO.toString());
+			ramais.setPaused(ramais.getPaused());
 			ramaisListRepository.save(ramais);
 		};
 	}

@@ -2,7 +2,10 @@ package br.com.rsds.ramais.model;
 
 import org.hibernate.validator.constraints.Length;
 
+import br.com.rsds.ramais.enums.Paused;
+import br.com.rsds.ramais.enums.converters.PausedConverter;
 import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,7 +13,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 
 @Entity
@@ -49,9 +51,7 @@ public class Ramais {
 	private String departament;
 
 	@NotNull
-	@NotBlank
 	@Column(name = "PAUSED", nullable = false, length = 3)
-	@Length(min = 3, max = 3)
-	@Pattern(regexp = "SIM|NAO")
-	private String paused = Paused.NAO.toString();
+	@Convert(converter = PausedConverter.class)
+	private Paused paused = Paused.PAUSED_NAO;
 }

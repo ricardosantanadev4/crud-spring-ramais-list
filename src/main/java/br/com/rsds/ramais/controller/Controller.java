@@ -23,7 +23,7 @@ import jakarta.validation.constraints.Positive;
 
 @Validated
 @RestController
-@RequestMapping("/api/ramais-list")
+@RequestMapping("/api/ramais")
 public class Controller {
 	private final RamaisService ramaisListService;
 
