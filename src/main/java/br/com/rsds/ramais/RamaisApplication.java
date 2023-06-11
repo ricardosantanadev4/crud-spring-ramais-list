@@ -25,7 +25,6 @@ public class RamaisApplication {
 			ramais.setContextPermission("DDI");
 			ramais.setCaptureGroup("1");
 			ramais.setDepartament("DESENVOLVIMENTO");
-			ramais.setPaused(ramais.getPaused());
 			ramaisListRepository.save(ramais);
 		};
 	}

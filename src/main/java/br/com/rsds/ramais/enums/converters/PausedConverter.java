@@ -4,7 +4,9 @@ import java.util.stream.Stream;
 
 import br.com.rsds.ramais.enums.Paused;
 import jakarta.persistence.AttributeConverter;
+import jakarta.persistence.Converter;
 
+@Converter(autoApply = true)
 public class PausedConverter implements AttributeConverter<Paused, String> {
 
 	@Override
@@ -14,7 +16,7 @@ public class PausedConverter implements AttributeConverter<Paused, String> {
 
 	@Override
 	public Paused convertToEntityAttribute(String dbData) {
-		return Stream.of(Paused.values()).filter(paused -> paused.equals(dbData)).findFirst()
+		return Stream.of(Paused.values()).filter(paused -> paused.getValue().equals(dbData)).findFirst()
 				.orElseThrow(IllegalArgumentException::new);
 	}
 
